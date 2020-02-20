@@ -188,6 +188,9 @@ img {
   border-radius: 50%;
   align-self: center;
   .vertPadding(6%);
+  @media (max-width: 500px) {
+    display: none;
+  } //closes media
 }
 h1,
 h2,
@@ -213,7 +216,8 @@ h4 {
 h5 {
   font-size: 1.2rem;
 }
-p, li {
+p,
+li {
   font-size: 1.1rem;
   line-height: 1.1rem;
   padding: 4% 8%;
@@ -240,7 +244,12 @@ header {
 .mainContainer {
   width: 90%;
   .vertPadding(4%);
-  .rowReverse();
+  @media (min-width: 500px) {
+    .rowReverse();
+  } //closes media
+  @media (max-width: 500px) {
+    .column(space-around);
+  } //closes media
 } //closes .mainContainer
 
 .button {
@@ -256,6 +265,9 @@ header {
   cursor: pointer;
   display: block;
   margin: 0 auto;
+  @media (max-width: 500px) {
+    display: none;
+  } //closes media
 }
 
 .rightSide {
@@ -279,9 +291,12 @@ header {
   li {
     color: @asideColor;
   } //closes .leftSide-->p
-  h5{
+  h5 {
     font-family: @mainFont;
-  }//closes h5
+  } //closes h5
+  @media (max-width: 500px) {
+    width: 100%;
+  } //closes media
 } // closes .rightSide
 
 .leftSide {
@@ -301,9 +316,12 @@ header {
   li {
     color: @bodyColor;
   } //closes .leftSide-->p
-  h5{
+  h5 {
     font-family: @mainFont;
-  }//closes h5
+  } //closes h5
+  @media (max-width: 500px) {
+    width: 100%;
+  } //closes media
 } //closed .leftSide
 
 .contentBox {

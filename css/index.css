@@ -142,6 +142,11 @@ img {
   align-self: center;
   padding: 6% 0;
 }
+@media (max-width: 500px) {
+  img {
+    display: none;
+  }
+}
 h1,
 h2,
 h3,
@@ -193,8 +198,19 @@ header a:visited {
 .mainContainer {
   width: 90%;
   padding: 4% 0;
-  display: flex;
-  flex-direction: row-reverse;
+}
+@media (min-width: 500px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+@media (max-width: 500px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
 .button {
   background-color: #78a1bb;
@@ -209,6 +225,11 @@ header a:visited {
   cursor: pointer;
   display: block;
   margin: 0 auto;
+}
+@media (max-width: 500px) {
+  .button {
+    display: none;
+  }
 }
 .rightSide {
   display: flex;
@@ -238,6 +259,11 @@ header a:visited {
 .rightSide h5 {
   font-family: "Open Sans", sans-serif;
 }
+@media (max-width: 500px) {
+  .rightSide {
+    width: 100%;
+  }
+}
 .leftSide {
   display: flex;
   flex-direction: column;
@@ -262,6 +288,11 @@ header a:visited {
 }
 .leftSide h5 {
   font-family: "Open Sans", sans-serif;
+}
+@media (max-width: 500px) {
+  .leftSide {
+    width: 100%;
+  }
 }
 .contentBox {
   padding: 4% 0;
