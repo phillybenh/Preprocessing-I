@@ -136,7 +136,8 @@ table {
 
 html,
 body {
-  height: 100%;
+  // height: 100%;
+  .centered();
 }
 
 /////////// Starting My Style ///////////
@@ -156,7 +157,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.row(@justify){
+.row(@justify) {
   display: flex;
   justify-content: @justify;
 }
@@ -173,18 +174,16 @@ body {
 .vertPadding(@padAmount) {
   padding: @padAmount 0;
 }
-// .linkStyle(){
-//   color:
-// }
 
 //My fly style:
 body {
   font-size: 62.5%; //setting the base font size
   font-family: @mainFont;
-  .centered();
+  .vertPadding(4%);
 }
 img {
   width: 90%;
+  max-width: 300px;
   height: auto;
   border-radius: 50%;
   align-self: center;
@@ -214,13 +213,14 @@ h4 {
 h5 {
   font-size: 1.2rem;
 }
-p {
+p, li {
   font-size: 1.1rem;
   line-height: 1.1rem;
+  padding: 4% 8%;
 }
 header {
   width: 100%;
-  height: auto;
+  // height: auto;
   .column(space-around);
   h1,
   h2 {
@@ -261,7 +261,7 @@ header {
 .rightSide {
   .column(space-between);
   .outerContentBox {
-    height: 80vh;
+    // height: 80vh;
     .column(space-evenly);
   } //closes outerContentBox
   width: 60%;
@@ -269,6 +269,19 @@ header {
   header {
     background-color: @headerColor;
   } //closes header
+  h3 {
+    color: @asideColor;
+  } //closes .leftSide-->h's
+  h4,
+  h5,
+  p,
+  ul,
+  li {
+    color: @asideColor;
+  } //closes .leftSide-->p
+  h5{
+    font-family: @mainFont;
+  }//closes h5
 } // closes .rightSide
 
 .leftSide {
@@ -276,19 +289,21 @@ header {
   width: 40%;
   background-color: @asideColor;
   .outerContentBox {
-    height: 80vh;
     .column(space-evenly);
   } //closes outerContentBox
-  h3,
-  h4 {
+  h3 {
     color: @asideHeadingColor;
   } //closes .leftSide-->h's
+  h4,
   h5,
   p,
   ul,
   li {
     color: @bodyColor;
   } //closes .leftSide-->p
+  h5{
+    font-family: @mainFont;
+  }//closes h5
 } //closed .leftSide
 
 .contentBox {
@@ -297,16 +312,15 @@ header {
   width: 100%;
 } //closes .contentBox
 
-.social{
+.social {
   .row(space-around);
   a:link,
-a:visited {
-  text-decoration: none;
-  color: @asideHeadingColor;
-  text-decoration: none;
-  i{
-    font-size: 1.4rem;
-  }
-}//closes a
-
-}//closes .social
+  a:visited {
+    text-decoration: none;
+    color: @asideHeadingColor;
+    text-decoration: none;
+    i {
+      font-size: 1.4rem;
+    }
+  } //closes a
+} //closes .social

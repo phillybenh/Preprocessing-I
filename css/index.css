@@ -126,16 +126,17 @@ table {
 }
 html,
 body {
-  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
-  display: flex;
-  justify-content: center;
+  padding: 4% 0;
 }
 img {
   width: 90%;
+  max-width: 300px;
   height: auto;
   border-radius: 50%;
   align-self: center;
@@ -165,13 +166,14 @@ h4 {
 h5 {
   font-size: 1.2rem;
 }
-p {
+p,
+li {
   font-size: 1.1rem;
   line-height: 1.1rem;
+  padding: 4% 8%;
 }
 header {
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -216,13 +218,25 @@ header a:visited {
   background-color: #eff9f2;
 }
 .rightSide .outerContentBox {
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 .rightSide header {
   background-color: #03674f;
+}
+.rightSide h3 {
+  color: #00242b;
+}
+.rightSide h4,
+.rightSide h5,
+.rightSide p,
+.rightSide ul,
+.rightSide li {
+  color: #00242b;
+}
+.rightSide h5 {
+  font-family: "Open Sans", sans-serif;
 }
 .leftSide {
   display: flex;
@@ -232,20 +246,22 @@ header a:visited {
   background-color: #00242b;
 }
 .leftSide .outerContentBox {
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.leftSide h3,
-.leftSide h4 {
+.leftSide h3 {
   color: #78a1bb;
 }
+.leftSide h4,
 .leftSide h5,
 .leftSide p,
 .leftSide ul,
 .leftSide li {
   color: #eff9f2;
+}
+.leftSide h5 {
+  font-family: "Open Sans", sans-serif;
 }
 .contentBox {
   padding: 4% 0;
