@@ -4,56 +4,341 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+// ul,
+// li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+// ol,
+// ul {
+//   list-style: none;
+// }
+blockquote,
+q {
+  quotes: none;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  // height: 100%;
+  .centered();
 }
 
+/////////// Starting My Style ///////////
+
+//Colors:
+@headerColor: #03674f; //also, for body-headings
+@bodyColor: #eff9f2; //also, for header-headings and aside-paragraphs
+@asideColor: #00242b; //also, for body-paragraphs
+@asideHeadingColor: #78a1bb;
+
+//Fonts:
+@headingFont: "Belgrano", serif;
+@mainFont: "Open Sans", sans-serif;
+
+//Mixins:
+.centered() {
+  display: flex;
+  justify-content: center;
+}
+.row(@justify) {
+  display: flex;
+  justify-content: @justify;
+}
+.rowReverse() {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.column(@justify) {
+  display: flex;
+  flex-direction: column;
+  justify-content: @justify;
+}
+
+.vertPadding(@padAmount) {
+  padding: @padAmount 0;
+}
+
+//My fly style:
+body {
+  font-size: 62.5%; //setting the base font size
+  font-family: @mainFont;
+  .vertPadding(4%);
+}
+img {
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  align-self: center;
+  .vertPadding(6%);
+  @media (max-width: 500px) {
+    display: none;
+  } //closes media
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: @headingFont;
+  padding: 2%;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 4.7rem;
+}
+h2 {
+  font-size: 2.1rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.4rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+p,
+li {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  padding: 4% 8%;
+}
+header {
+  width: 100%;
+  // height: auto;
+  .column(space-around);
+  h1,
+  h2 {
+    color: @bodyColor;
+  }
+  h2 {
+    font-family: @mainFont;
+  }
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: @asideColor;
+    text-decoration: none;
+  }
+}
+
+.mainContainer {
+  width: 90%;
+  .vertPadding(4%);
+  @media (min-width: 500px) {
+    .rowReverse();
+  } //closes media
+  @media (max-width: 500px) {
+    .column(space-around);
+  } //closes media
+} //closes .mainContainer
+
+.button {
+  background-color: @asideHeadingColor;
+  color: @asideColor;
+  text-decoration: none;
+  text-align: center;
+  font-family: @mainFont;
+  font-size: 1.5rem;
+  padding: 2%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  @media (max-width: 500px) {
+    display: none;
+  } //closes media
+}
+
+.rightSide {
+  .column(space-between);
+  .outerContentBox {
+    // height: 80vh;
+    .column(space-evenly);
+  } //closes outerContentBox
+  width: 60%;
+  background-color: @bodyColor;
+  header {
+    background-color: @headerColor;
+  } //closes header
+  h3 {
+    color: @asideColor;
+  } //closes .leftSide-->h's
+  h4,
+  h5,
+  p,
+  ul,
+  li {
+    color: @asideColor;
+  } //closes .leftSide-->p
+  h5 {
+    font-family: @mainFont;
+  } //closes h5
+  @media (max-width: 500px) {
+    width: 100%;
+  } //closes media
+} // closes .rightSide
+
+.leftSide {
+  .column(space-between);
+  width: 40%;
+  background-color: @asideColor;
+  .outerContentBox {
+    .column(space-evenly);
+  } //closes outerContentBox
+  h3 {
+    color: @asideHeadingColor;
+  } //closes .leftSide-->h's
+  h4,
+  h5,
+  p,
+  ul,
+  li {
+    color: @bodyColor;
+  } //closes .leftSide-->p
+  h5 {
+    font-family: @mainFont;
+  } //closes h5
+  @media (max-width: 500px) {
+    width: 100%;
+  } //closes media
+} //closed .leftSide
+
+.contentBox {
+  .vertPadding(4%);
+  .column(space-around);
+  width: 100%;
+} //closes .contentBox
+
+.social {
+  .row(space-around);
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: @asideHeadingColor;
+    text-decoration: none;
+    i {
+      font-size: 1.4rem;
+    }
+  } //closes a
+} //closes .social
